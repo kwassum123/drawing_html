@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Drawing HTML</title>
+        <link href="style.css" type="text/css" rel="stylesheet"/>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+    <body>
+        <h1>Drawing HTML</h1>
+        <h2>Click Button for More Info</h2>
+        <button type="button" onclick="info()">Info</button>
+        <script> 
+            var dataset1 = ["The select command finds the body in the DOM and hands off a reference to the next step in the chain.","The append command takes the empty placeholder selection created by enter() and appends an HTML element into the DOM. It also hands off a reference to the next step in the chain .", "The text command takes the reference to the newly created HTML element and inserts whatever text that is typed within the parenthesis of the command.", "The style command allows for the setting of CSS properties on selections." ]
+            
+            var info = function ()
+            {
+                d3.select("body").selectAll("p")
+                    .data(dataset1)
+                    .enter()
+                    .append("p")
+                    .text(function(d) {return d;})
+            }
+        </script>
+    </body>
+</html>
